@@ -35,5 +35,5 @@ int main()
   y2=inp();
 	square_root=squ(x1,x2,y1,y2);
 	out(x1,x2,y1,y2,square_root);
-	return 0;
+	return 0; 
 }
