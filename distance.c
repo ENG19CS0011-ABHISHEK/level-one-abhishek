@@ -27,12 +27,12 @@ int main()
 	float x1,x2,y1,y2,square_root;
 	printf("Enter the value for  x1 :\n");
 	x1=inp();
-  printf("Enter the value for  x2 :\n");
+  	printf("Enter the value for  x2 :\n");
 	x2=inp();
-  printf("Enter the value for y1 :\n");
-  y1=inp();
-  printf("Enter the value for y2 :\n");
-  y2=inp();
+  	printf("Enter the value for y1 :\n");
+  	y1=inp();
+  	printf("Enter the value for y2 :\n");
+  	y2=inp();
 	square_root=squ(x1,x2,y1,y2);
 	out(x1,x2,y1,y2,square_root);
 	return 0; 
