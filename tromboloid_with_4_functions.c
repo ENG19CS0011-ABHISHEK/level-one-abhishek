@@ -32,5 +32,5 @@ printf("Enter the value for d :\n");
 d=inp();
 	volume=vol(h,b,d);
 	out(volume);
-	return 0;
+	return 0; 
 }
