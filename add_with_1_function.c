@@ -2,9 +2,7 @@
 #include<stdio.h>
 int sum(int x , int y)
 {
-	int c ;
-	c=x+y;
-	return c;
+	return x+y;
 }
 
 int main()
@@ -15,6 +13,7 @@ int main()
     	printf("Enter The Second Number :\n");
 	scanf("%d",&b);
 	s=sum(a,b);
-	printf("Sum Of %d And %d Is : %d",a,b,s);
-	return 0; 
+	printf("Sum Of %d And %d Is : %d\n",a,b,s);
+	return 0;
 }
+
