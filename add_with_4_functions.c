@@ -11,9 +11,7 @@ int inp()
 
 int sum(int a,int b)
 {
-	int c;
-	c = a+b;
-	return c;
+	return a+b;
 }
 
 void out(int x,int y,int z)
