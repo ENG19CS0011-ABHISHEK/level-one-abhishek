@@ -4,11 +4,11 @@
 void inp(float *h,float *b,float *d)
 {
 	printf("Enter the value for  h :\n");
-	scanf("%f",&*h);
-    printf("Enter the value for  b :\n");
-	scanf("%f",&*b);
-    printf("Enter the value for d :\n");
-	scanf("%f",&*d);
+	scanf("%f",h);
+    	printf("Enter the value for  b :\n");
+	scanf("%f",b);
+    	printf("Enter the value for d :\n");
+	scanf("%f",d);
 }
 
 float vol(float h, float b, float d)
@@ -18,9 +18,9 @@ float vol(float h, float b, float d)
 	return v;
 }
 
-void out(float vo)
+void out(float h, float b, float d,float vo)
 {
-	printf("The volume of Tromboloid is %.3f .",vo);
+	printf("The volume of Tromboloid with h=%.3f , b=%.3f, c=%.3f is %.3f .",h,b,d,vo);
 }
 
 
@@ -32,5 +32,6 @@ int main()
 	out(volume);
 	return 0;
 }
+
 
 
