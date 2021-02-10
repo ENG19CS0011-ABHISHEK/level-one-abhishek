@@ -2,14 +2,14 @@
 #include<stdio.h>
 #include<math.h>
 
-void inp(float *x1,float *y1,float *x1,float *y2)
+void inp(float *x1,float *y1,float *x2,float *y2)
 {
 	printf("Enter the value for x1 :\n");
 	scanf("%f",x1);
+   	printf("Enter the value for y1 :\n");
+	scanf("%f",y1);
     	printf("Enter the value for x2 :\n");
 	scanf("%f",x2);
-    	printf("Enter the value for y1 :\n");
-	scanf("%f",y1);
 	printf("Enter the value for y2 :\n");
 	scanf("%f",y2);
 
@@ -23,9 +23,9 @@ float dist(float x1, float y1,  float x2, float y2)
 }
 
 
-void out(float x1,float x2,float y1,float y2,float sq)
+void out(float x1,float y1,float x2,float y2,float sq)
 {
-	printf("The Distance between (%.3f ,%.3) ,(%.3f ,%.3f) Is %.3f .",x1,x2,y1,y2,sq);
+	printf("The Distance between (%.3f ,%.3f) ,(%.3f ,%.3f) Is %.3f .",x1,y1,x2,y2,sq);
 }
 
 
@@ -33,9 +33,10 @@ void out(float x1,float x2,float y1,float y2,float sq)
 int main()
 {
 	float x1,x2,y1,y2,square_root;
-    	inp(&x1,&x2,&y1,&y2);
+    	inp(&x1,&y1,&x2,&y2);
 	square_root=dist(x1,x2,y1,y2);
-	out(x1,x2,y1,y2,square_root);
+	out(x1,y1,x2,y2,square_root);
 	return 0;
 }
+
 
