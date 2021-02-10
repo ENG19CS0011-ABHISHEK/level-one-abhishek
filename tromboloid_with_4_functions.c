@@ -29,9 +29,10 @@ int main()
 	float h,b,d,volume;
     	inp(&h,&b,&d);
 	volume=vol(h,b,d);
-	out(volume);
+	out(h,b,d,volume);
 	return 0;
 }
+
 
 
 
