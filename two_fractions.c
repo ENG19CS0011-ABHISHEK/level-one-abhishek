@@ -37,9 +37,22 @@ fract calc(fract f1,fract f2)
     }
 }
 
-void oup(fract sum)
-{
-	printf("The sum of both the fractions is %d/%d .\n",sum.num,sum.den);
+void oup(fract f1,fract f2,fract sum)
+{	
+    int n1=sum.num,n2=sum.den;
+    while(n1!=n2)
+    {
+        if(n1>n2){
+            n1-=n2;
+        }
+        else
+        {
+            n2-=n1;
+        }
+        
+    }
+
+	printf("The sum of both the fractions %d/%d and %d/%d is %d/%d .\n",f1.num,f1.den,f2.num,f2.den,sum.num/n1,sum.den/n1);
 }
 
 int main()
@@ -48,6 +61,6 @@ int main()
 	f1=inp();
 	f2=inp();
 	s=calc(f1,f2);
-	oup(s);
+	oup(f1,f2,s);
 	return 0;
 }
