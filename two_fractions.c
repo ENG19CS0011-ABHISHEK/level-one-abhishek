@@ -24,43 +24,47 @@ fract calc(fract f1,fract f2)
 {
 	fract sum;
 	if(f1.den == f2.den)
-    {
-	sum.num=f1.num+f2.num;
-	sum.den=f1.den;
-	return sum;
+   	{
+		sum.num=f1.num+f2.num;
+		sum.den=f1.den;
+		return sum;
 	}
 	else
 	{
 		sum.num =(f1.num*f2.den)+(f2.num*f1.den);
 		sum.den = f1.den*f2.den;
 		return sum;
-    }
+    	}
 }
-
-void oup(fract f1,fract f2,fract sum)
+fract gcd(fract sum)
+{
+	fract n1;
+	n1.num=sum.num,n1.den=sum.den;
+    	while(n1.num!=n1.den)
+    	{
+        	if(n1.num>n1.den)
+            	{
+            	n1.num-=n1.den;
+        	}
+       	 	else
+        	{
+            	n1.den-=n1.num;
+        	}
+        }
+        return n1;
+}
+void oup(fract f1,fract f2,fract sum,fract g)
 {	
-    int n1=sum.num,n2=sum.den;
-    while(n1!=n2)
-    {
-        if(n1>n2){
-            n1-=n2;
-        }
-        else
-        {
-            n2-=n1;
-        }
-        
-    }
-
-	printf("The sum of both the fractions %d/%d and %d/%d is %d/%d .\n",f1.num,f1.den,f2.num,f2.den,sum.num/n1,sum.den/n1);
+	printf("The sum of both the fractions %d/%d and %d/%d is %d/%d .\n",f1.num,f1.den,f2.num,f2.den,sum.num/g.num,sum.den/g.num);
 }
 
 int main()
 {   
-	fract f1,f2,s;
+	fract f1,f2,s,g;
 	f1=inp();
 	f2=inp();
 	s=calc(f1,f2);
-	oup(f1,f2,s);
+	g=gcd(s);
+    	oup(f1,f2,s,g);
 	return 0;
 }
