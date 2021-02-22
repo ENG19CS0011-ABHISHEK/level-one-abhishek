@@ -20,42 +20,37 @@ fract inp()
      
 }
 
-fract calc(fract f1,fract f2)
+int gcd(int a,int b)
 {
-	fract sum;
-	if(f1.den == f2.den)
-   	{
-		sum.num=f1.num+f2.num;
-		sum.den=f1.den;
-		return sum;
-	}
-	else
-	{
-		sum.num =(f1.num*f2.den)+(f2.num*f1.den);
-		sum.den = f1.den*f2.den;
-		return sum;
-    }
-}
-int gcd(fract sum)
-{
-	    fract n1;
-	    n1.num=sum.num,n1.den=sum.den;
-    	while(n1.num!=n1.den)
+    	while(a!=b)
     	{
-        	if(n1.num>n1.den)
+        	if(a>b)
             {
-            	n1.num-=n1.den;
+            	a-=b;
         	}
        	 	else
         	{
-            	n1.den-=n1.num;
+            	b-=a;
         	}
         }
-        return n1.num;
+        return a;
 }
-void oup(fract f1,fract f2,fract sum,int g)
+
+fract calc(fract f1,fract f2)
+{
+	fract sum;
+	sum.num =(f1.num*f2.den)+(f2.num*f1.den);
+	sum.den = f1.den*f2.den;
+	int g=gcd(sum.num,sum.den);
+	sum.num = sum.num/g;
+	sum.den = sum.den/g;
+	return sum;
+	
+}
+
+void oup(fract f1,fract f2,fract sum)
 {	
-	printf("The sum of both the fractions %d/%d and %d/%d is %d/%d .\n",f1.num,f1.den,f2.num,f2.den,sum.num/g,sum.den/g);
+	printf("The sum of both the fractions %d/%d and %d/%d is %d/%d .\n",f1.num,f1.den,f2.num,f2.den,sum.num,sum.den);
 }
 
 int main()
@@ -65,7 +60,6 @@ int main()
 	f1=inp();
 	f2=inp();
 	s=calc(f1,f2);
-	g=gcd(s);
-    	oup(f1,f2,s,g);
+    	oup(f1,f2,s);
 	return 0;
 }
