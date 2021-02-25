@@ -81,7 +81,7 @@ void oup(fract ar)
 
 int main()
 {   
-    int *n;
+    int n;
     fract arr[100],finalCalc;
     takeVal(arr,&n);
     finalCalc=arrCal(arr,&n);
