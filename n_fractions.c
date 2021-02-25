@@ -1,6 +1,5 @@
 //WAP to find the sum of n fractions.
 #include <stdio.h>
-#include<math.h>
 
 struct fractions
 {
@@ -45,7 +44,7 @@ fract calc(fract f1,fract f2)
 	
 }
 
-fract takeVal(fract arr[],int *n)
+void takeVal(fract arr[],int *n)
 {
     
     printf("Enter the no. of fractions to be calculated : \n");
@@ -53,8 +52,8 @@ fract takeVal(fract arr[],int *n)
     printf("Enter the fractions One-by-one :\n");
     for(int i =0;i<*n;i++)
     {
-	printf("Enter the value of Fraction %d\n" ,(i+1));
-	arr[i]=inp();
+	    printf("Enter the value of Fraction %d\n" ,(i+1));
+	    arr[i]=inp();
     }
 }
 
@@ -65,7 +64,7 @@ fract arrCal(fract arr[],int *n)
     res.den=1;
     for(int i = 0;i<*n;i++)
     {
-	res=calc(res,arr[i]);
+	    res=calc(res,arr[i]);
     }
     int g=gcd(res.num,res.den);
     res.num=res.num/g;
@@ -74,9 +73,15 @@ fract arrCal(fract arr[],int *n)
 
 }
 
-void oup(fract ar)
+void oup(fract arr[],fract ar,int *n)
 {	
-	printf("The sum of the fractions is %d/%d .\n",ar.num,ar.den);
+
+    printf("Entered fractions are : \n");
+    for(int i=0;i<*n;i++)
+    {
+        printf("%d/%d\t",arr[i].num,arr[i].den);
+    }
+    printf("\nThe sum of the fractions is %d/%d .\n",ar.num,ar.den);
 }
 
 int main()
@@ -85,7 +90,7 @@ int main()
     fract arr[100],finalCalc;
     takeVal(arr,&n);
     finalCalc=arrCal(arr,&n);
-    oup(finalCalc);
+    oup(arr,finalCalc,&n);
     return 0;
 }
 
