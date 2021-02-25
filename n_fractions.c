@@ -41,37 +41,38 @@ fract calc(fract f1,fract f2)
 	fract sum;
 	sum.num =(f1.num*f2.den)+(f2.num*f1.den);
 	sum.den = f1.den*f2.den;
-	int g=gcd(sum.num,sum.den);
-	sum.num = sum.num/g;
-	sum.den = sum.den/g;
 	return sum;
 	
 }
 
-fract ainp(fract arr[])
+fract takeVal(fract arr[],int *n)
 {
-    int n;
+    
     printf("Enter the no. of fractions to be calculated : \n");
-    scanf("%d",&n);
-    fract res;
-    arr[n];
-    res.num=0;
-    res.den=1;
+    scanf("%d",n);
     printf("Enter the fractions One-by-one :\n");
-    for(int i =0;i<n;i++)
+    for(int i =0;i<*n;i++)
     {
 	printf("Enter the value of Fraction %d\n" ,(i+1));
 	arr[i]=inp();
     }
-    for(int i = 0;i<n;i++)
+}
+
+fract arrCal(fract arr[],int *n)
+{
+    fract res;
+    res.num=0;
+    res.den=1;
+    for(int i = 0;i<*n;i++)
     {
 	res=calc(res,arr[i]);
     }
+    int g=gcd(res.num,res.den);
+    res.num=res.num/g;
+    res.den=res.den/g;
     return res;
 
 }
-
-
 
 void oup(fract ar)
 {	
@@ -80,9 +81,11 @@ void oup(fract ar)
 
 int main()
 {   
-    fract arr[100],ar;
-    ar=ainp(arr);
-    oup(ar);
+    int *n;
+    fract arr[100],finalCalc;
+    takeVal(arr,&n);
+    finalCalc=arrCal(arr,&n);
+    oup(finalCalc);
     return 0;
 }
 
