@@ -57,12 +57,12 @@ void takeVal(fract arr[],int *n)
     }
 }
 
-fract arrCal(fract arr[],int *n)
+fract arrCal(fract arr[],int n)
 {
     fract res;
     res.num=0;
     res.den=1;
-    for(int i = 0;i<*n;i++)
+    for(int i = 0;i<n;i++)
     {
 	    res=calc(res,arr[i]);
     }
@@ -73,11 +73,11 @@ fract arrCal(fract arr[],int *n)
 
 }
 
-void oup(fract arr[],fract ar,int *n)
+void oup(fract arr[],fract ar,int n)
 {	
 
     printf("Entered fractions are : \n");
-    for(int i=0;i<*n;i++)
+    for(int i=0;i<n;i++)
     {
         printf("%d/%d\t",arr[i].num,arr[i].den);
     }
@@ -89,8 +89,8 @@ int main()
     int n;
     fract arr[100],finalCalc;
     takeVal(arr,&n);
-    finalCalc=arrCal(arr,&n);
-    oup(arr,finalCalc,&n);
+    finalCalc=arrCal(arr,n);
+    oup(arr,finalCalc,n);
     return 0;
 }
 
